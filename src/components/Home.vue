@@ -1,35 +1,38 @@
 <template>
+  <div style="background-color:#26C6DA; height: 100%">
     <v-layout row style="margin-top:60px">
-          <v-flex  xs12 sm6 offset-sm3 >
-            <v-card>
-              <h1>login</h1>
-                   <v-form v-model="valid" style="margin-top:60px;">
+          <v-flex xs12 sm6 offset-sm4 >
+            <v-card style="width: 60%; padding: 50px;">
+                   <v-form style="">
+                     <h1>Login</h1>
+                     <br/>
                       <v-text-field style=""
                                 label="email"
                                 v-model="email"
                                 :rules="emailRules"
-                                required
-                                >
+                                required>
                      </v-text-field>
                       <v-text-field
                                 label="password"
                                 v-model="email"
                                 :rules="emailRules"
-                                required
-                                >
+                                required>
                      </v-text-field>
-                      <v-btn color="info" @click="login()" >Login</v-btn>
-                      <v-btn color="info" @click="signup()" >Sign Up</v-btn>
+                      <v-btn style="width: 40%;" color="info" @click="login()" >Login</v-btn>
+                      <v-btn style="width: 40%" color="warning" @click="signup()" >Sign Up</v-btn>
+                    <br/>
+                    <br/>
+                      <v-divider></v-divider>
+                      <br/>
+                      <v-btn depressed>
+                        <img height="25" style="margin-right: 10px" src="~@/assets/google.png">
+                        Log in with Google</v-btn>
                    </v-form>
-                    <v-divider></v-divider>
-                   <v-layout>
-                     <v-flex xs12>
-                               <v-btn depressed small>Google</v-btn>
-                     </v-flex>
-                   </v-layout>
+
             </v-card>
           </v-flex>
       </v-layout>
+    </div>
 </template>
 <script>
 export default {

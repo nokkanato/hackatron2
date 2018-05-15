@@ -1,14 +1,12 @@
 <template>
-  <div style="margin-top:20%;">
-      <h1>pick a role</h1>
-     rider
-       <v-btn @click="rider()" fab dark large color="purple">
-      <v-icon dark>edit</v-icon>
-    </v-btn>
-     driver
-     <v-btn  @click="driver()" fab dark large color="purple">
-      <v-icon dark>android</v-icon>
-    </v-btn>
+  <div style="background-color:#FDD835; height: 100%">
+      <img height="300" style="margin-right: 10px" src="~@/assets/yellow.png">
+      <img height="300" style="margin-right: 10px" src="~@/assets/right.png">
+      <img @click="driver()" height="300" style="margin-top: 4%; margin-left: 0%" src="~@/assets/blueCircle.png">
+      <br/>
+      <img height="300" style="margin-right: 10px" src="~@/assets/down.png">
+       <img @click="rider()" height="300" src="~@/assets/greenCircle.png">
+      <!-- <v-icon dark>android</v-icon> -->
   </div>
 </template>
 <script>
