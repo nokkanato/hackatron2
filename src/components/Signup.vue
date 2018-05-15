@@ -3,7 +3,7 @@
           <v-flex  xs12 sm6 offset-sm3 >
             <v-card style="">
               <h1>Register</h1>
-                   <v-form v-model="valid" style="margin-top:60px;">
+                   <v-form style="margin-top:60px;">
                       <v-text-field style=""
                                 label="email"
                                 v-model="email"
@@ -17,13 +17,14 @@
                                 required
                                 >
                      </v-text-field>
-                      <v-btn color="info" @click="login()" >submit</v-btn>
+                      <v-btn color="info" @click="submit()" >submit</v-btn>
                    </v-form>
             </v-card>
           </v-flex>
       </v-layout>
 </template>
 <script>
+import firebase from 'firebase'
 export default {
   mounted () {
     this.onResize()
@@ -51,7 +52,17 @@ export default {
       this.windowSize = { x: window.innerWidth, y: window.innerHeight }
     },
     submit () {
-      this.$router.push('role')
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
+        function (user) {
+          alert('account have been created')
+          location.reload()
+          this.$router.push('/')
+        },
+        function (err) {
+          alert(err)
+          location.reload()
+        }
+      )
     }
   }
 }

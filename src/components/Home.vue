@@ -1,11 +1,14 @@
 <template>
   <div style="background-color:#26C6DA; height: 100%">
     <v-layout row style="margin-top:60px">
+
           <v-flex xs12 sm6 offset-sm4 >
             <v-card style="width: 60%; padding: 50px;">
                    <v-form style="">
                      <h1>Login</h1>
                      <br/>
+
+
                       <v-text-field style=""
                                 label="email"
                                 v-model="email"
@@ -29,17 +32,28 @@
                         Log in with Google</v-btn>
                    </v-form>
 
+                    <v-divider></v-divider>
+                   <v-layout>
+                     <v-flex xs12>
+                               <v-btn depressed small @click="googleLogin()">Google</v-btn>
+                     </v-flex>
+                   </v-layout>
+
             </v-card>
           </v-flex>
       </v-layout>
     </div>
 </template>
 <script>
+import firebase from 'firebase'
+import router from '@/router'
 export default {
   mounted () {
     this.onResize()
   },
   data: () => ({
+    email: '',
+    password: '',
     windowSize: {
       x: 0,
       y: 0
@@ -64,6 +78,17 @@ export default {
     },
     signup () {
       this.$router.push('signup')
+    },
+    googleLogin () {
+      var provider = new firebase.auth.GoogleAuthProvider()
+      firebase.auth().signInWithPopup(provider).then(function (result) {
+        // var token = result.credential.accessToken;
+        // var user = result.user
+        router.push('role')
+        console.log(result)
+      }).catch(function (error) {
+        console.log(error)
+      })
     }
   }
 }
