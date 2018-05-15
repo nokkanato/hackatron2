@@ -1,14 +1,13 @@
 <template>
-  <div>
+  <div style="background-color:#FDD835; height: 100%">
       <v-container>
-       <v-layout style="margin-top:10%;">
+       <v-layout style="">
         <v-flex xs12 sm6 offset-sm3>
-            <v-card>
+            <v-card style="padding:30px">
                   <v-form v-model="valid">
                     <v-text-field
                     v-model="this.type"
                     :rules="nameRules"
-                    label='direction'
                     disabled="true"
                     required
                     ></v-text-field>
@@ -18,45 +17,51 @@
                     label="Route Taking"
                     required
                     ></v-text-field>
-                     <v-text-field
-                    v-model="name"
-                    :rules="nameRules"
-                    label="Leave when"
-                    required
-                    ></v-text-field>
-                    <v-text-field
-                    v-model="email"
-                    :rules="emailRules"
-                    label="Estimate Arriving Time"
-                    required
-                    ></v-text-field>
-                    <br><br><br>
-                    <v-divider></v-divider>
                     <v-layout>
-                        <v-flex xs6>
-                            <h1>Note</h1>
-                             <v-text-field
-                                name="input-7-2"
-                                label="Label Text"
-                                value="Input Text"
-                                multi-line
-                                ></v-text-field>
-                                <v-btn color="info">Submit</v-btn>
-                        </v-flex>
-                         <v-flex xs6>
-                             <v-text-field
-                                name="input-1-3"
-                                label="Car Model"
-                                single-line
-                                ></v-text-field>
-                                <v-text-field
-                                name="input-1-3"
-                                label="Plate no."
-                                single-line
-                                ></v-text-field>
-                        </v-flex>
+                      <v-flex>
+                         <v-text-field
+                        v-model="name"
+                        :rules="nameRules"
+                        label="Leave when"
+                        required
+                        style="width: 95%"
+                        ></v-text-field>
+                      </v-flex>
+                      <v-flex>
+                        <v-text-field
+                        v-model="email"
+                        :rules="emailRules"
+                        label="Estimate Arriving Time"
+                        style="margin-left: 5%;width: 95%"
+                        required
+                        ></v-text-field>
+                      </v-flex>
                     </v-layout>
-
+                    <v-layout>
+                      <v-flex>
+                         <v-text-field
+                        v-model="name"
+                        :rules="nameRules"
+                        label="Car Model"
+                        style="width: 95%"
+                        ></v-text-field>
+                      </v-flex>
+                      <v-flex>
+                        <v-text-field
+                        v-model="email"
+                        :rules="emailRules"
+                        label="Plate Number"
+                        style="margin-left: 5%;width: 95%"
+                        required
+                        ></v-text-field>
+                      </v-flex>
+                    </v-layout>
+                    <v-text-field
+                    name="input-7-2"
+                    label="Label Text"
+                    multi-line
+                    ></v-text-field>
+                    <v-btn color="info" style="width: 50%">Submit</v-btn>
                 </v-form>
             </v-card>
         </v-flex>

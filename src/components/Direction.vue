@@ -1,14 +1,13 @@
 <template>
-<div>
- <div class="text-xs-center" style="margin-top:20%;" >
+<div style="background-color:#26C6DA; height: 100%">
+ <div class="text-xs-center" style="margin: auto; margin-top:17%;" >
     <v-btn
       @click="to()"
-
       :loading="loading"
       :disabled="loading"
-      color="blue-grey"
+      color="yellow darken-2"
       @click.native="loader = 'loading'"
-      large
+      style="height: 100%; width: 98%; font-size: 50px; color: white;"
     >
       TO MUIC
     </v-btn>
@@ -16,11 +15,11 @@
  <div class="text-xs-center" style="" >
     <v-btn
       @click="from()"
-    large
       :loading="loading"
       :disabled="loading"
-      color="secondary"
+      color="orange darken-2"
       @click.native="loader = 'loading'"
+      style="height: 100%; width: 98%; font-size: 50px; color: white"
     >
       From MUIC
     </v-btn>
