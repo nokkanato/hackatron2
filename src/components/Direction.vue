@@ -6,7 +6,6 @@
       :loading="loading"
       :disabled="loading"
       color="yellow darken-2"
-      @click.native="loader = 'loading'"
       style="height: 100%; width: 98%; font-size: 50px; color: white;"
     >
       TO MUIC
@@ -18,18 +17,20 @@
       :loading="loading"
       :disabled="loading"
       color="orange darken-2"
-      @click.native="loader = 'loading'"
       style="height: 100%; width: 98%; font-size: 50px; color: white"
     >
       From MUIC
     </v-btn>
  </div>
+ <Logout></Logout>
  </div>
 </template>
 <script>
+import Logout from '@/components/Logout'
 import Store from '../store.js'
 export default {
   mounted () {
+    console.log('role', Store.state.role)
     this.onResize()
   },
   data: () => ({
@@ -40,6 +41,7 @@ export default {
     offsetTop: 0
   }),
   components: {
+    Logout
   },
   methods: {
     from () {
@@ -47,7 +49,7 @@ export default {
       if (Store.state.role === 'driver') {
         this.$router.push('form')
       } else {
-        console.log('rider')
+        this.$router.push('choose')
       }
     },
     to () {
@@ -55,6 +57,7 @@ export default {
       if (Store.state.role === 'driver') {
         this.$router.push('form')
       } else {
+        this.$router.push('choose')
         console.log('rider')
       }
     },

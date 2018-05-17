@@ -7,7 +7,9 @@ Vue.use(Vuex)
 const state = {
   auth: false,
   role: '',
-  direction: ''
+  direction: '',
+  statusPage: false,
+  idd: ''
 }
 
 export default new Vuex.Store({

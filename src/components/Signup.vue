@@ -25,6 +25,7 @@
 </template>
 <script>
 import firebase from 'firebase'
+import router from '@/router'
 export default {
   mounted () {
     this.onResize()
@@ -55,8 +56,7 @@ export default {
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
         function (user) {
           alert('account have been created')
-          location.reload()
-          this.$router.push('/')
+          router.push('/role')
         },
         function (err) {
           alert(err)

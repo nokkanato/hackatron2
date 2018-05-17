@@ -5,6 +5,8 @@ import Role from '@/components/Role'
 import Direction from '@/components/Direction'
 import Form from '@/components/Form'
 import Signup from '@/components/Signup'
+import Choose from '@/components/Choose'
+import Status from '@/components/Status'
 import firebase from '../firebase'
 Vue.use(Router)
 let router = new Router({
@@ -13,6 +15,27 @@ let router = new Router({
       path: '*',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/choose',
+      name: 'Choose',
+      component: Choose,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/status',
+      name: 'status',
+      component: Status,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/role',

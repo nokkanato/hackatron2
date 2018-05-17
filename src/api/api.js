@@ -1,26 +1,19 @@
-import Vue from 'vue'
-import store from '../store'
-
+// import Vue from 'vue'
+import firebase from 'firebase'
+import Api2 from './api2.js'
 export default {
-  login (email, password, callback) {
-    console.log(store)
-    var loginParams = {
-      user: {
-        email: email,
-        password: password
+  getFrom (dir, callback) {
+    let g = []
+    firebase.database().ref(dir).once('value').then(function (snapshot) {
+      let x = snapshot.val()
+      // console.log('callback', x)
+      for (var i in x) {
+        Api2.buddha(i, dir, j => {
+          g.push(j)
+        })
       }
-    }
-    Vue.$http.post('/users/api_sign_in.json', loginParams)
-    .then(function (response) {
-      store.dispatch('login')
-      callback(response.data)
+      console.log('g', g)
+      callback(g)
     })
-    .catch(function (response) {
-      store.dispatch('logout')
-    })
-  },
-  signUp (email, password) {
-      
   }
-
 }

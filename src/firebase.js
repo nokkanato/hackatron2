@@ -14,3 +14,4 @@ firebase.initializeApp(config)
 export default firebase
 export const db = firebase.database()
 export const auth = firebase.auth()
+/* eslint-disable no-new */

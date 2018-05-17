@@ -7,15 +7,23 @@
       <img height="300" style="margin-right: 10px" src="~@/assets/down.png">
        <img @click="rider()" height="300" src="~@/assets/greenCircle.png">
       <!-- <v-icon dark>android</v-icon> -->
+      <Logout></Logout>
   </div>
 </template>
 <script>
 import Store from '../store.js'
+import Logout from '@/components/Logout'
 export default {
   mounted () {
     this.onResize()
   },
   data: () => ({
+    items: [
+      { title: 'Logout' },
+      { title: 'Click Me' },
+      { title: 'Click Me' },
+      { title: 'Click Me 2' }
+    ],
     windowSize: {
       x: 0,
       y: 0
@@ -27,6 +35,7 @@ export default {
     ]
   }),
   components: {
+    Logout
   },
   methods: {
     onScroll (e) {
@@ -40,6 +49,7 @@ export default {
     },
     driver () {
       Store.state.role = 'driver'
+      console.log(Store.state.role)
       this.$router.push('direction')
     },
     rider () {
